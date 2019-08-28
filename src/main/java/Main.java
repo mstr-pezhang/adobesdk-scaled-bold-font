@@ -38,7 +38,7 @@ public class Main {
 			/**
 			 * When this line below is commented out, this issue won't occur.
 			 */
-			//page.updateContent();
+			page.updateContent();
 
 			doc.insertPages(Document.LAST_PAGE, pages, 0, Document.ALL_PAGES, EnumSet.of(PageInsertFlags.NONE));
 		} catch (Exception e) {
