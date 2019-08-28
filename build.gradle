@@ -1,0 +1,28 @@
+
+apply plugin: 'java'
+
+repositories {
+	jcenter()
+	mavenCentral()
+	flatDir(dirs: file('AdobeSDK/Java/Binaries'))
+}
+
+configurations {
+	providedRuntime
+    runtime.exclude module:'com.datalogics.PDFL'
+}
+
+dependencies {
+    compile ':com.datalogics.PDFL@jar'
+}
+
+sourceSets {
+	main {
+		runtimeClasspath += files('AdobeSDK/Java/Binaries/com.datalogics.PDFL.jar')
+	}
+}
+
+task run(type:JavaExec) {
+	main = "Main"
+	classpath = sourceSets.main.runtimeClasspath
+}
